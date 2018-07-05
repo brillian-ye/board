@@ -8,21 +8,20 @@ $pw_chk=$_POST['pw_chk'];
 include("./dbconn.php");
 
 if($pw!=$pw_chk){
-	
-	echo "password is not matched!";
-	echo "<a href=./index.php>back page</a>";
-	exit();	
+
+	echo "<script>alert('password is not matched');location.href='./index.php'</script>";
+	exit();
 }
 
 
 
 $check="SELECT * FROM b_user where id='$id'";
 $result=$conn->query($check);
+$row=mysqli_fetch_array($result);
 
-if($result->num_rows==1)
+if($row==1)
 {
-	echo "exist same id";
-	echo "<a href=./index.php>back page</a>";
+	echo "<script>alert('exist SAME ID');location.href='./index.php'</script>";
 	exit();
 
 }
@@ -30,9 +29,8 @@ if($result->num_rows==1)
 $signup=mysqli_query($conn,"INSERT INTO `b_user` (`id`,`pw`) VALUES ('$id','$pw')");
 
 if($signup){
-	echo "success";
+	echo "<script>alert('signup OK');location.href='./index.php'</script>";
 }
 
 
 ?>
-

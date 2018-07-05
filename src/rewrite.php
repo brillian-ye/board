@@ -70,6 +70,17 @@ input[type=submit]:hover {
 
 <?php
 	include"./header.php";
+  include"./dbconn.php";
+
+  if(!isset($_GET["b_no"])){
+    echo "error";
+    exit();
+  }
+
+
+  $num = $_GET["num"];
+
+  $sql="select b_title, b_content from board_free";
 ?>
 
 </head>
@@ -83,7 +94,7 @@ input[type=submit]:hover {
         <label for="lname">Title</label>
       </div>
       <div class="col-75">
-        <input type="text" id="btitle" name="btitle" placeholder="Your title..">
+        <input type="text" id="btitle" name="btitle" placeholder="<?php echo $row['b_title']?>">
       </div>
     </div>
     <div class="row">
@@ -91,17 +102,10 @@ input[type=submit]:hover {
         <label for="subject">Content</label>
       </div>
       <div class="col-75">
-        <textarea id="bcontent" name="bcontent" placeholder="Write something.." style="height:200px"></textarea>
+        <textarea id="bcontent" name="bcontent" placeholder="<?php echo $row['b_content']?>" style="height:200px"></textarea>
       </div>
     </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="fname">Password</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="bpw" name="bpw" placeholder="Write password..">
-      </div>
-    </div>
+
     <br><br>
     <div class="row">
       <input type="submit" value="Submit">

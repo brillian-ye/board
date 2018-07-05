@@ -70,6 +70,17 @@ input[type=submit]:hover {
 
 <?php
 	include"./header.php";
+  include"./dbconn.php";
+
+  if(!isset($_GET["b_no"])){
+    echo "error";
+    exit();
+  }
+
+
+  $num = $_GET["num"];
+
+  $sql="select b_title, b_id, b_content"
 ?>
 
 </head>

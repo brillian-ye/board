@@ -56,7 +56,7 @@ body {
 }
 
 /* Column container */
-.row {  
+.row {
     display: -ms-flexbox; /* IE10 */
     display: flex;
     -ms-flex-wrap: wrap; /* IE10 */
@@ -75,14 +75,13 @@ body {
 </div>
 
 <div class="navbar">
-  <a href="#">write</a>
+  <a href="./list.php">Home</a>
 
-  <a href="./write.php" class="right">write</a>
   <a href="./logout.php" class="right">logout</a>
+  <a href="./write.php" class="right">write</a>
 </div>
 
 
 
 </body>
 </html>
-
